@@ -60,8 +60,7 @@ prompt_end() {
   else
     print -n "%{%k%}"
   fi
-  print -n "%{%f%}"
-  print "\n$"
+  print "%{%f%}\n$"
   CURRENT_BG=''
 }
 
@@ -73,7 +72,7 @@ prompt_context() {
   local user=`whoami`
 
   if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
-    prompt_segment red $PRIMARY_FG " %(!.%{%F{yellow}%}.)$user at MacBookPro "
+    prompt_segment red $PRIMARY_FG " %F{yellow}%}$user at MacBookPro "
   fi
 }
 
@@ -108,7 +107,7 @@ prompt_dir() {
 }
 
 # Status:
-# - was there an error
+# - was there an errorw
 # - am I root
 # - are there background jobs?
 prompt_status() {
